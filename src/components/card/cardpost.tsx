@@ -37,6 +37,7 @@ export function CardPost({ _id, penulis, isi, gambar }: CardPostProps) {
                 height={128}
                 className="h-full w-full flex-shrink-0 rounded-lg object-cover"
                 priority={false}
+                unoptimized
               />
             ) : (
               <div className="bg-muted flex h-full w-full items-center justify-center rounded-lg">

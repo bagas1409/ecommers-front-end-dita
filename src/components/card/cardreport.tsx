@@ -72,6 +72,7 @@ export function CardReport({
               height={128}
               className="h-full w-full flex-shrink-0 rounded-lg object-cover"
               priority={false}
+              unoptimized
             />
           ) : (
             <div className="bg-muted hidden h-full w-full items-center justify-center rounded-lg md:flex">

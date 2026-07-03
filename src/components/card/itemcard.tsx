@@ -32,6 +32,7 @@ export function CartItemCard({
             alt={product.name}
             fill
             className="rounded-lg object-cover"
+            unoptimized
           />
         </div>
 
