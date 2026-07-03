@@ -146,11 +146,12 @@ FRONTEND_URL="https://payload.web.id"
 npm install
 ```
 
-### Langkah 4: Terapkan Migrasi Database & Generate Client
-Terapkan migrasi skema database PostgreSQL secara aman dan buat modul klien Prisma:
+### Langkah 4: Terapkan Migrasi Database, Generate Client & Seeding
+Terapkan migrasi skema database PostgreSQL secara aman, buat modul klien Prisma, dan masukkan data awal (seeding) ke database:
 ```bash
 npx prisma migrate deploy
 npx prisma generate
+npx prisma db seed
 ```
 
 ### Langkah 5: Compile TypeScript ke JavaScript (Build)

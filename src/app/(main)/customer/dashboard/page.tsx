@@ -151,6 +151,7 @@ export default function UserDashboard() {
                   alt={product.name}
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
 
