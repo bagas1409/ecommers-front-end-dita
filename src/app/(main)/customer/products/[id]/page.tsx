@@ -15,7 +15,14 @@ export default function ProductDetailPage({
   const unwrappedParams = use(params);
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [isAdding, setIsAdding] = useState(false);
   const { addToCart } = useCart();
+
+  const handleAddToCart = async () => {
+    setIsAdding(true);
+    await addToCart(product.id, 1);
+    setIsAdding(false);
+  };
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   useEffect(() => {
@@ -72,12 +79,21 @@ export default function ProductDetailPage({
         <p className="leading-relaxed text-gray-700 whitespace-pre-wrap">{product.description}</p>
 
         <Button 
-          className="mt-4 w-full" 
+          className="mt-4 w-full flex items-center justify-center gap-2" 
           size="lg"
-          onClick={() => addToCart(product.id, 1)}
-          disabled={product.stock < 1}
+          onClick={handleAddToCart}
+          disabled={product.stock < 1 || isAdding}
         >
-          {product.stock > 0 ? "Add to Cart" : "Stok Habis"}
+          {isAdding ? (
+            <>
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+              Menambahkan...
+            </>
+          ) : product.stock > 0 ? (
+            "Add to Cart"
+          ) : (
+            "Stok Habis"
+          )}
         </Button>
 
         <Button 
